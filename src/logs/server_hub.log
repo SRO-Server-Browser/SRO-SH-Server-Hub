@@ -1,0 +1,33 @@
+2025-04-17 17:41:07,517 - INFO - [INFO] Public IP fetched: 176.232.55.43
+2025-04-17 17:41:07,517 - ERROR - Attempt 1: Failed to connect to HUB - [Errno 11001] getaddrinfo failed
+2025-04-17 17:41:08,525 - ERROR - Attempt 2: Failed to connect to HUB - [Errno 11001] getaddrinfo failed
+2025-04-17 17:41:10,531 - ERROR - Attempt 3: Failed to connect to HUB - [Errno 11001] getaddrinfo failed
+2025-04-17 17:41:13,546 - ERROR - Attempt 4: Failed to connect to HUB - [Errno 11001] getaddrinfo failed
+2025-04-17 17:41:17,548 - ERROR - Attempt 5: Failed to connect to HUB - [Errno 11001] getaddrinfo failed
+2025-04-17 17:48:47,413 - ERROR - [HUB] Failed to fetch HUB IP: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/kantrveysel/sroserverbrowser/refs/heads/main/hub.txt
+2025-04-17 17:48:47,861 - INFO - [INFO] Public IP fetched: 176.232.55.43
+2025-04-17 17:48:49,909 - ERROR - Attempt 1: Failed to connect to HUB - [WinError 1225] Uzaktaki bilgisayar að baðlantýsýný reddetti
+2025-04-17 17:48:53,960 - ERROR - Attempt 2: Failed to connect to HUB - [WinError 1225] Uzaktaki bilgisayar að baðlantýsýný reddetti
+2025-04-17 17:49:00,019 - ERROR - Attempt 3: Failed to connect to HUB - [WinError 1225] Uzaktaki bilgisayar að baðlantýsýný reddetti
+2025-04-17 17:49:10,072 - ERROR - Attempt 4: Failed to connect to HUB - [WinError 1225] Uzaktaki bilgisayar að baðlantýsýný reddetti
+2025-04-17 17:49:28,103 - ERROR - Attempt 5: Failed to connect to HUB - [WinError 1225] Uzaktaki bilgisayar að baðlantýsýný reddetti
+2025-04-17 17:50:00,108 - ERROR - [HUB] Max reconnect attempts (5) reached.
+2025-04-17 17:50:00,156 - WARNING - [HUB] No handshake data received, reconnecting...
+2025-04-17 17:50:02,199 - ERROR - Attempt 1: Failed to connect to HUB - [WinError 1225] Uzaktaki bilgisayar að baðlantýsýný reddetti
+2025-04-17 17:50:06,238 - ERROR - Attempt 2: Failed to connect to HUB - [WinError 1225] Uzaktaki bilgisayar að baðlantýsýný reddetti
+2025-04-17 17:50:12,266 - ERROR - Attempt 3: Failed to connect to HUB - [WinError 1225] Uzaktaki bilgisayar að baðlantýsýný reddetti
+2025-04-17 17:50:22,317 - ERROR - Attempt 4: Failed to connect to HUB - [WinError 1225] Uzaktaki bilgisayar að baðlantýsýný reddetti
+2025-04-17 17:50:26,168 - INFO - [INFO] Public IP fetched: 176.232.55.43
+2025-04-17 17:50:47,215 - ERROR - Attempt 1: Failed to connect to HUB - [WinError 121] Semafor zaman aþýmý süresi geçildi
+2025-04-17 17:51:10,262 - ERROR - Attempt 2: Failed to connect to HUB - [WinError 121] Semafor zaman aþýmý süresi geçildi
+2025-04-17 17:51:35,293 - ERROR - Attempt 3: Failed to connect to HUB - [WinError 121] Semafor zaman aþýmý süresi geçildi
+2025-04-17 17:52:04,361 - ERROR - Attempt 4: Failed to connect to HUB - [WinError 121] Semafor zaman aþýmý süresi geçildi
+2025-04-17 17:52:41,410 - ERROR - Attempt 5: Failed to connect to HUB - [WinError 121] Semafor zaman aþýmý süresi geçildi
+2025-04-17 17:53:13,425 - ERROR - [HUB] Max reconnect attempts (5) reached.
+2025-04-17 17:53:13,473 - WARNING - [HUB] No handshake data received, reconnecting...
+2025-04-17 17:53:34,519 - ERROR - Attempt 1: Failed to connect to HUB - [WinError 121] Semafor zaman aþýmý süresi geçildi
+2025-04-17 17:53:57,582 - ERROR - Attempt 2: Failed to connect to HUB - [WinError 121] Semafor zaman aþýmý süresi geçildi
+2025-04-17 17:54:22,608 - ERROR - Attempt 3: Failed to connect to HUB - [WinError 121] Semafor zaman aþýmý süresi geçildi
+2025-04-17 17:54:51,621 - ERROR - Attempt 4: Failed to connect to HUB - [WinError 121] Semafor zaman aþýmý süresi geçildi
+2025-04-17 17:55:28,674 - ERROR - Attempt 5: Failed to connect to HUB - [WinError 121] Semafor zaman aþýmý süresi geçildi
+2025-04-17 17:56:00,686 - ERROR - [HUB] Max reconnect attempts (5) reached.
