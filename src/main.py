@@ -15,7 +15,7 @@ async def main():
     logger = Logger()
     config_manager = ConfigManager()
     sql_manager = SQLManager(config_manager)
-    hub_client = HubClient(config_manager, logger)
+    hub_client = HubClient(config_manager, logger, sql_manager)
 
     try:
         await hub_client.start()

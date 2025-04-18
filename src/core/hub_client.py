@@ -5,10 +5,12 @@ import json
 import time
 import requests
 from ping3 import ping
+
 from utils.colors import Loader, print_success, print_fail
+from core.handleManager import MessageHandler
 
 class HubClient:
-    def __init__(self, config_manager, logger):
+    def __init__(self, config_manager, logger, sql_manager):
         self.config_manager = config_manager
         self.logger = logger
         self.ip_hub = self._get_hub_ip()
@@ -18,6 +20,9 @@ class HubClient:
         self.identifier = None
         self.public_ip = None
         self.max_reconnect_attempts = 5
+        self.sql_manager = sql_manager
+        self.handleManager = MessageHandler(self)
+        self.client_list = []
 
     def _get_hub_ip(self):
         """HUB IP adresini alır, hata durumunda varsayılan bir değer döner."""
@@ -52,11 +57,12 @@ class HubClient:
                 try:
                     self.reader, self.writer = await asyncio.open_connection(self.ip_hub, self.port_hub)
                     self.logger.success(f"Attempt {attempt}: Connected to HUB ({self.ip_hub}:{self.port_hub})")
+                    
                     return
                 except (OSError, asyncio.TimeoutError) as e:
                     self.logger.fail(f"Attempt {attempt}: Failed to connect to HUB - {e}")
                     self.reader = self.writer = None
-                    await asyncio.sleep(min(2 ** attempt, 32))  # Üstel geri çekilme
+                    await asyncio.sleep(min(2 ** attempt, 1000))  # Üstel geri çekilme
             self.logger.fail(f"[HUB] Max reconnect attempts ({self.max_reconnect_attempts}) reached.")
 
     async def read(self):
@@ -102,11 +108,14 @@ class HubClient:
         """HUB'dan gelen verileri sürekli dinler."""
         while self.writer:
             data = await self.read()
+            
             if not data:
                 self.logger.warning("[HUB] Connection lost, reconnecting...")
                 await self.connect()
                 await self.handshake()
                 continue
+                        
+            await self.handleManager.handle(data)
             self.logger.debug(f"[HUB] Received: {data.decode()}")
 
     async def update_config(self):
@@ -125,21 +134,24 @@ class HubClient:
                     "type": "config"
                 }
             }
-            self.logger.debug(json.dumps(package, indent=2))
+            self.logger.debug("Config Updated")
+            #self.logger.debug(json.dumps(package, indent=2))
             await self.write(package)
 
             if is_initial_cycle and key == list(self.config_manager.get_config())[-1]:
                 is_initial_cycle = False
                 ping_hub = ping(self.ip_hub) or 1
-                await asyncio.sleep(ping_hub * 1000)
+                self.logger.success("Config Update Completed")
+                return None #await asyncio.sleep(ping_hub * 1000)
             else:
-                await asyncio.sleep(1)
-
+                await asyncio.sleep(5)
+                
     async def start(self):
         """HUB istemcisini başlatır."""
         await self.fetch_ip()
         await self.connect()
         await self.handshake()
+        await asyncio.sleep(5)
         await asyncio.gather(self.loop(), self.update_config())
 
     async def stop(self):

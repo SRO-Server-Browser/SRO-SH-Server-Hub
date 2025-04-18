@@ -31,3 +31,7 @@ class Logger:
 
     def box(self, *args, color_code=color.Blue):
         box.print(*args, color_code=color_code)
+    
+    def log(self, *args):
+        logging.debug(message)
+        self.info(message) # for test purpose normally I need to log a file
