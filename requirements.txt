@@ -1,0 +1,5 @@
+aiohttp==3.11.12
+colorama==0.4.5
+ping3==4.0.8
+pyodbc==5.2.0
+Requests==2.32.3
