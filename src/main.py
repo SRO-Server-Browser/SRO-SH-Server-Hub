@@ -6,12 +6,14 @@ from core.hub_client import HubClient
 from core.logger import Logger
 from utils.colors import box
 
+__version__ = "v1.0-alpha"
+
 if not is_admin():
     request_admin(sys.executable, __file__)
     sys.exit()
     
 async def main():
-    box.print("Server Hub","initilization started")
+    box.print(f"Server Hub {__version__}","initilization started")
     logger = Logger()
     config_manager = ConfigManager()
     sql_manager = SQLManager(config_manager)
